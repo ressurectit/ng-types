@@ -1,0 +1,29 @@
+{
+    "name": "@ng2/types",
+    "version": "1.0.0",
+    "description": "Angular 2 custom definition files for typescript",
+    "scripts": 
+    {
+        "republish": "npm publis --force",
+        "deploy-stable": "npp -b",
+        "deploy-next": "npp -p -b -s \"beta\" -t \"next\""
+    },
+    "keywords": 
+    [
+        "angular2",
+        "ng2",
+        "types"
+    ],
+    "author": "kukjevov",
+    "license": "ISC",
+    "dependencies": 
+    {
+    },
+    "devDependencies": 
+    {
+        "@types/jquery": "~2.0.32",
+        "@types/systemjs": "~0.19.31",
+        "npm-publish-package": "1.2.0",
+        "typescript": "2.0.3"
+    }
+}
