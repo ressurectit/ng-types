@@ -1,0 +1,30 @@
+{
+    "compilerOptions":
+    {
+        "target": "es5",
+        "module": "commonjs",
+        "sourceMap": false,
+        "declaration": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": false,
+        "moduleResolution": "node",
+        "lib": 
+        [
+            "es6"
+        ],
+        "typeRoots": 
+        [
+            "."
+        ],
+        "types":
+        [
+            "jquery",
+            "systemjs"
+        ]
+    },
+    "exclude": 
+    [
+        "node_modules"
+    ]
+}
