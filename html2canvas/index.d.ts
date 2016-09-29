@@ -18,5 +18,5 @@ declare module "html2canvas"
 {
     var _tmp: Html2CanvasModule.Html2Canvas;
     
-    export default _tmp;
+    export = _tmp;
 }
