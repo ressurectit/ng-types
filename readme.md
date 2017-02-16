@@ -1,4 +1,4 @@
-# Angular 2 custom types
+# Angular custom types
 
-Angular 2 custom definition files for typescript
+Angular custom definition files for typescript
 
