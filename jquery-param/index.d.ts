@@ -1,7 +1,14 @@
+declare module jqueryParam
+{
+    interface IJQueryParam
+    {
+        (obj: any): string;
+    }
+}
+
 declare module "jquery-param"
 {
-    function param(obj: any): string;
-
+    var param: jqueryParam.IJQueryParam;
     export = param;
 }
 
