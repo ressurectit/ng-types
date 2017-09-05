@@ -1,6 +1,6 @@
 declare module "command-line-usage"
 {
-    import {Section} from 'command-line-usage-options';
+    import {OptionList, Content} from 'command-line-usage-options';
 
     /**
      * Returns options as help string
@@ -8,7 +8,7 @@ declare module "command-line-usage"
      * @returns {object}
      * @alias module:command-line-usage
      */
-    function commandLineUsage(sections: Section[]|Section): any;
+    function commandLineUsage(sections: OptionList|Content[]|OptionList|Content): any;
 
     export = commandLineUsage;
 }
