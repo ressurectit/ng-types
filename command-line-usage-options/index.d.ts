@@ -69,7 +69,7 @@ declare module "command-line-usage-options"
     /**
      * A OptionList section adds a table displaying details of the available options.
      */
-    export interface OptionList
+    export interface OptionList extends Section
     {
         /**
          * an array of option definition objects. In addition to the regular definition properties, command-line-usage will look for:
