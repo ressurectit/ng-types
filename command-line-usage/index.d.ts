@@ -8,7 +8,7 @@ declare module "command-line-usage"
      * @returns {object}
      * @alias module:command-line-usage
      */
-    function commandLineUsage(sections: OptionList|Content[]|OptionList|Content): any;
+    function commandLineUsage(sections: (OptionList|Content)[]|OptionList|Content): any;
 
     export = commandLineUsage;
 }
