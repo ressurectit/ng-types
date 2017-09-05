@@ -1,12 +1,14 @@
 {
     "name": "@anglr/types",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "description": "Angular custom definition files for typescript",
     "scripts": 
     {
         "republish": "npm publis --force",
         "deploy-stable": "npp -b",
-        "deploy-next": "npp -p -b -s \"beta\" -t \"next\""
+        "deploy-next": "npp -p -b -s \"beta\" -t \"next\"",
+        "deploy:stable:local": "npp -b --registry http://local:4873",
+        "deploy-next:local": "npp -p -b -s \"beta\" -t \"next\" --registry http://local:4873"
     },
     "keywords": 
     [
@@ -24,6 +26,6 @@
         "@types/jquery": "~2.0.40",
         "@types/systemjs": "~0.20.0",
         "npm-publish-pkg": "1.2.0",
-        "typescript": "2.1.6"
+        "typescript": "2.5.2"
     }
 }
