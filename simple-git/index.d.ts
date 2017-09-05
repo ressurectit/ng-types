@@ -277,8 +277,8 @@ declare namespace simpleGit {
     /**
      * wraps git rev-parse. Primarily used to convert friendly commit references (ie branch names) to SHA1 hashes. Options should be an array of string options compatible with the git rev-parse
      */
-    revprase(handlerFn: HandlerFunction): Git;
-    revprase(options: string[], handlerFn: HandlerFunction): Git;
+    revparse(handlerFn: HandlerFunction): Git;
+    revparse(options: string[], handlerFn: HandlerFunction): Git;
 
     /**
      * Gets the status of the current repo
@@ -306,6 +306,11 @@ declare namespace simpleGit {
      * attaches a handler that will be called with the name of the command being run and the stdout and stderr readable streams created by the child process running that command
      */
     outputHandler(handlerFn: Function): Git;
+
+    /**
+     * Execute any arbitrary array of commands supported by the underlying git binary. When the git process returns a non-zero signal on exit and it printed something to stderr, the commmand will be treated as an error, otherwise treated as a success.
+     */
+    raw(args: string[], handlerFn: HandlerFunction): Git;
 
     /**
      * Calls a simple function in the current step
