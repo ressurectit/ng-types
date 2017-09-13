@@ -1,6 +1,6 @@
 {
     "name": "@anglr/types",
-    "version": "1.1.7",
+    "version": "1.1.8",
     "description": "Angular custom definition files for typescript",
     "scripts":
     {
@@ -24,6 +24,8 @@
     "devDependencies":
     {
         "@types/jquery": "~2.0.40",
+        "@types/jqueryui": "~1.11.36",
+        "@types/jquery.fancytree": "~2.7.31",
         "@types/systemjs": "~0.20.0",
         "npm-publish-pkg": "1.2.0",
         "typescript": "2.5.2"
