@@ -1,7 +1,7 @@
 /**
  * Defines scrollmagic namespace
  */
-declare namespace Scrollmagic
+declare namespace ScrollMagic
 {
     /**
      * The main class that is needed once per scroll container.
@@ -139,6 +139,11 @@ declare namespace Scrollmagic
          * If you don't use custom containers, trigger elements or have static layouts, where the positions of the trigger elements don't change, you can set this to 0 disable interval checking and improve performance.
          */
         refreshInterval?: number;
+
+        /**
+         * If set to `true` every scene that is added to the controller will automatically get indicators added to it.
+         */
+        addIndicators?: boolean;
     }
 
     /**
@@ -325,17 +330,17 @@ declare namespace Scrollmagic
         /**
          * Remove one or more event listener.
          * @param {string} names The name or names of the event that should be removed.
-         * @param {Function} callback A specific callback function that should be removed. If none is passed all callbacks to the event listener will be removed.
+         * @param {(event: ScrollMagicEvent) => void} callback A specific callback function that should be removed. If none is passed all callbacks to the event listener will be removed.
          */
-        off(names: string, callback?: Function): Scene;
+        off(names: string, callback?: (event: ScrollMagicEvent) => void): Scene;
 
         /**
          * Add one ore more event listener.
          * The callback function will be fired at the respective event, and an object containing relevant data will be passed to the callback.
          * @param {string} names The name or names of the event the callback should be attached to.
-         * @param {Function} callback A function that should be executed, when the event is dispatched. An event object will be passed to the callback.
+         * @param {(event: ScrollMagicEvent) => void} callback A function that should be executed, when the event is dispatched. An event object will be passed to the callback.
          */
-        on(names: string, callback: Function): Scene;
+        on(names: string, callback: (event: ScrollMagicEvent) => void): Scene;
 
         /**
          * Trigger an event.
@@ -343,6 +348,54 @@ declare namespace Scrollmagic
          * @param {object} vars An object containing info that should be passed to the callback.
          */
         trigger(name: string, vars?: object): Scene;
+
+        /**
+         * Add visual indicators for a `ScrollMagic.Scene`.
+         * @param {IndicatorOptions} options
+         */
+        addIndicators(options?: IndicatorOptions): Scene;
+
+        /**
+         * Removes visual indicators from a `ScrollMagic.Scene`.
+         */
+        removeIndicators(): Scene;
+    }
+
+    /**
+     * An object containing one or more options for the indicators.
+     */
+    interface IndicatorOptions
+    {
+        /**
+         * A selector, DOM Object or a jQuery object that the indicators should be added to.
+         * If undefined, the controller's container will be used.
+         */
+        parent?: string|object;
+
+        /**
+         * This string will be displayed at the start and end indicators of the scene for identification purposes. If no name is supplied an automatic index will be used.
+         */
+        name?: string;
+
+        /**
+         * Additional position offset for the indicators (useful, when having multiple scenes starting at the same position).
+         */
+        indent?: number;
+
+        /**
+         * CSS color definition for the start indicator.
+         */
+        colorStart?: string;
+
+        /**
+         * CSS color definition for the end indicator.
+         */
+        colorEnd?: string;
+
+        /**
+         * CSS color definition for the trigger indicator.
+         */
+        colorTrigger?: string;
     }
 
     /**
@@ -410,9 +463,36 @@ declare namespace Scrollmagic
          */
         loglevel?: 0|1|2|3;
     }
+
+    /**
+     * Event object for scrollmagic events
+     */
+    interface ScrollMagicEvent
+    {
+        currentTarget?: Scene;
+
+        namespace?: string;
+
+        progress: 0;
+
+        scrollDirection?: "FORWARD"|"REVERSE";
+
+        state?: "BEFORE"|"DURING"|"AFTER";
+
+        target?: Scene;
+
+        timestamp?: number;
+
+        type?: EventType;
+    }
+
+    /**
+     * Available event types
+     */
+    type EventType = "add"|"change"|"destroy"|"end"|"enter"|"leave"|"progress"|"remove"|"shift"|"start"|"update";
 }
 
 declare module "scrollmagic"
 {
-    export = Scrollmagic;
+    export = ScrollMagic;
 }
