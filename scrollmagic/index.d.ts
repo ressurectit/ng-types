@@ -496,3 +496,8 @@ declare module "scrollmagic"
 {
     export = ScrollMagic;
 }
+
+declare module "ScrollMagic"
+{
+    export = ScrollMagic;
+}
