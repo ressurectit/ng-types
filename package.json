@@ -1,6 +1,6 @@
 {
     "name": "@anglr/types",
-    "version": "1.1.14",
+    "version": "1.1.15",
     "description": "Angular custom definition files for typescript",
     "scripts": {
         "republish": "npm publis --force",
